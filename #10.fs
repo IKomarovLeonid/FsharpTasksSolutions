@@ -1,5 +1,3 @@
-// given two data time, we need to find out what time is bigger.
-
 type TimeOfDay = { hours: int; minutes: int; f: string }
 
 let (.>.) x y = 

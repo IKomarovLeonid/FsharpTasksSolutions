@@ -7,7 +7,8 @@ let rec dnto =function
  |n -> n :: dnto(n-1)
  
 let rec evenn = function
- |0->[0]
- |n when (n<0) -> []
- |n when n%2=0-> evenn(n-2) @ [n]
- |n when n%2=1 -> evenn(n-1)
+ |1->[0]
+ |2->evenn(1) @ [2]
+ |3->evenn(2) @ [4]
+ |n when n<1->[]
+ |n->evenn(n-1) @ [2*(n-1)]

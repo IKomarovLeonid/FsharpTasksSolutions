@@ -17,6 +17,20 @@ let rec multiplicity x xs  =
  |x,head::tail when x=head -> 1+multiplicity x tail
  |x,head::tail when x<>head -> multiplicity x tail
  
+ // 39.4
+ let rec split =
+  let rec even = function
+  | [ x ] -> [ x ]
+  | head :: (_ :: tail) -> head :: even tail
+  | _ -> []
+
+  let rec odd = function
+  | [ _ ] -> []
+  | _ :: (head2 :: tail) -> head2 :: odd tail
+  | _ -> []
+
+  fun xs -> (even xs, odd xs)
+ 
  //39.5
  let rec zip (xs1,xs2)= 
    match xs1,xs2 with

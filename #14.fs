@@ -31,7 +31,7 @@ let rec split =
 
   fun xs -> (even xs, odd xs)
  
- //39.5
+ //39.5 
 let rec zip (xs1,xs2)= 
   match xs1,xs2 with
   |[],[]->[]

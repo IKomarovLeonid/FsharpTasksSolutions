@@ -16,3 +16,11 @@ let rec multiplicity x xs  =
  |x,[] ->0
  |x,head::tail when x=head -> 1+multiplicity x tail
  |x,head::tail when x<>head -> multiplicity x tail
+ 
+ //39.5
+ let rec zip (xs1,xs2)= 
+   match xs1,xs2 with
+  |[],[]->[]
+  |head::tail,head1::tail1 when xs1.Length=xs2.Length-> [(head,head1)] @ zip (tail,tail1)
+  |head::tail,head1::tail1 when xs1.Length<>xs2.Length-> failwith "Need equal length of lists"
+  |_->[]

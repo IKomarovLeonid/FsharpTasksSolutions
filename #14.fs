@@ -10,3 +10,10 @@ let rec count (xs, n)=
 let rec smallest = function
 |[]-> failwith "List is empty"
 |head::tail-> List.min(head::tail)
+
+  // 40.3.2
+let rec delete (n, xs) = 
+ match n,xs with
+ |n,[]->[]
+ |n,head::tail when n<>head-> [head] @ delete(n,tail)
+ |n,head::tail when n=head->tail

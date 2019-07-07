@@ -13,6 +13,10 @@ let rec count (xs, n)=
 |head::tail,n when head<=n -> [head] @ insert(tail,n)
 |[],n->[n]
 |_,n->[]
+
+// 40.2.4
+let rec plus (xs1, xs2) = 
+ List.append xs1 xs2 
  
  // 40.3.1 
 let rec smallest = function

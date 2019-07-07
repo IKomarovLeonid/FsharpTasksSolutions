@@ -6,6 +6,14 @@ let rec count (xs, n)=
  |head::tail,n when head=n -> 1+count(tail,n)
  |head::tail,n when head>n -> 0
  
+ // 40.2.2
+ let rec insert (xs, n) =
+ match xs,n with 
+|head::tail,n when head>n -> [n] @ head::tail
+|head::tail,n when head<=n -> [head] @ insert(tail,n)
+|[],n->[n]
+|_,n->[]
+ 
  // 40.3.1 
 let rec smallest = function
 |[]-> failwith "List is empty"

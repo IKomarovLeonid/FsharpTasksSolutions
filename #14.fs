@@ -17,3 +17,8 @@ let rec delete (n, xs) =
  |n,[]->[]
  |n,head::tail when n<>head-> [head] @ delete(n,tail)
  |n,head::tail when n=head->tail
+ 
+   // 40.3.3
+let rec sort = function
+ |head::tail-> List.sort(head::tail)
+ |_-> []

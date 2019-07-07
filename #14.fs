@@ -18,11 +18,11 @@ let rec count (xs, n)=
  
  // 40.2.2
 let rec insert (xs, n) =
- match xs,n with 
- |head::tail,n when head>n -> [n] @ head::tail
- |head::tail,n when head<=n -> [head] @ insert(tail,n)
- |[],n->[n]
- |_,n->[]
+    match xs,n with 
+    |head::tail,n when head>n -> [n] @ head::tail
+    |head::tail,n when head<=n -> [head] @ insert(tail,n)
+    |[],n->[n]
+    |_,n->[]
 
 // 40.2.3
 let rec intersect (xs1: list<int>, xs2: list<int>) =

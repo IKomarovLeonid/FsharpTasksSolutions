@@ -34,8 +34,15 @@ let rec intersect (xs1: list<int>, xs2: list<int>) =
     | _ -> []
 
 // 40.2.4
-let rec plus (xs1, xs2) = 
-  List.append xs1 xs2 
+let rec plus (xs1: list<int>, xs2: list<int>) =
+    match (xs1, xs2) with
+    | (head1 :: tail1, head2 :: _) when head1 < head2 -> head1 :: plus (tail1, xs2)
+    | (head1 :: _, head2 :: tail2) when head1 > head2 -> head2 :: plus (xs1, tail2)
+    | (head1 :: tail1, head2 :: tail2) when head1 = head2 -> head1 :: head2 :: plus (tail1, tail2)
+    | (_, []) -> xs1
+    | ([], xs2) -> xs2
+    | ([ x ], [ y ]) when x = y -> [ x; y ]
+    | _ -> []
  
  // 40.2.5
 let rec minus (xs1: list<int>, xs2: list<int>) =

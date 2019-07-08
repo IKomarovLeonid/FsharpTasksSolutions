@@ -47,9 +47,16 @@ let rec minus (xs1: list<int>, xs2: list<int>) =
     | _ -> []
  
  // 40.3.1 
-let rec smallest = function
- |[]-> failwith "List is empty"
- |head::tail-> List.min(head::tail)
+let rec smallest =
+    let rec iter (xs: list<int>, min) =
+        match xs with
+        | [ x ] when x < min -> Some(x)
+        | head :: tail when head < min -> iter (tail, head)
+        | _ :: tail -> iter (tail, min)
+        | [] -> Some(min)
+    function
+    | [] -> None
+    | head :: tail -> iter (tail, head)
 
   // 40.3.2
 let rec delete (n, xs) = 

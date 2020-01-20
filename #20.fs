@@ -3,7 +3,6 @@ let rec fibo1 n n1 n2 =
     elif n < 2 then (n1 + n2)
     else fibo1 (n - 1) n2 (n1 + n2)
 
-
 let rec fibo2 c n = 
     if n < 2 then c n
     else fibo2 (fun x -> fibo2 (fun y -> c (x + y)) (n - 2) ) (n - 1)
